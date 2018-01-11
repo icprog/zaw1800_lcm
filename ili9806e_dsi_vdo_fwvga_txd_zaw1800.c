@@ -80,7 +80,7 @@ struct LCM_setting_table
 
 static struct LCM_setting_table lcm_initialization_setting[] =
 {
-#ifdef LCM_1 // LCM_1
+#if 0 // def LCM_1 // LCM_1
   {0xFF, 5, {0xFF, 0x98, 0x06, 0x04, 0x01}},
   {0x08, 1, {0x18}},
   {0x21, 1, {0x01}},
@@ -338,7 +338,7 @@ static struct LCM_setting_table lcm_sleep_out_setting[] =
 
 static struct LCM_setting_table lcm_deep_sleep_mode_in_setting[] =
 {
-  {0xFF, 5, {0xFF, 0x98, 0x06, 0x04, 0x00}},
+  // {0xFF, 5, {0xFF, 0x98, 0x06, 0x04, 0x00}},
 
   // Display off sequence
   {0x28, 1, {0x00}},
@@ -419,12 +419,14 @@ static void lcm_get_params(LCM_PARAMS *params)
   params->dbi.te_mode = LCM_DBI_TE_MODE_VSYNC_ONLY;
   params->dbi.te_edge_polarity = LCM_POLARITY_RISING;
 
-  params->dsi.pll_div1 = 1;
-  params->dsi.pll_div2 = 1;
-  params->dsi.fbk_sel = 1;
-  params->dsi.fbk_div = 30;
-  params->dsi.noncont_clock = 1;
-  params->dsi.noncont_clock_period = 2;
+  // params->dsi.pll_div1 = 1;
+  // params->dsi.pll_div2 = 1;
+  // params->dsi.fbk_sel = 1;
+  // params->dsi.fbk_div = 30;
+  // params->dsi.noncont_clock = 1;
+  // params->dsi.noncont_clock_period = 2;
+
+  params->dsi.PLL_CLOCK = 208;
 }
 
 static void lcm_init(void)
@@ -613,6 +615,7 @@ static unsigned int lcm_compare_id(void)
 
   // Force ID for now
   return 1;
+}
 #endif
 
 // ---------------------------------------------------------------------------
