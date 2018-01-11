@@ -426,7 +426,7 @@ static void lcm_get_params(LCM_PARAMS *params)
   // params->dsi.noncont_clock = 1;
   // params->dsi.noncont_clock_period = 2;
 
-  params->dsi.PLL_CLOCK = 208;
+  params->dsi.PLL_CLOCK = LCM_DSI_6589_PLL_CLOCK_208;
 }
 
 static void lcm_init(void)
